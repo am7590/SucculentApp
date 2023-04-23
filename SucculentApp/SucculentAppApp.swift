@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct SucculentAppApp: App {
+    @StateObject private var model = Model()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(model)
         }
     }
+}
+
+class Model: ObservableObject {
+    // Handle account auth, deep linking here
+    
+    @Published var selectedSucculentID: Succulent.ID?
 }
